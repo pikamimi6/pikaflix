@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>PikaFlix</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: left; /* linksbündig */
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      padding-left: 10px;
+    }
+    #search {
+      display: block;
+      margin: 0 0 30px 10px;
+      padding: 8px 15px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      max-width: 400px;
+      width: 90%;
+      background: #222;
+      color: #fff;
+    }
+    section {
+      margin-bottom: 40px;
+      padding-left: 10px;
+    }
+    section h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      border-left: 5px solid #f39c12;
+      padding-left: 10px;
+      text-align: left;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 0 10px 0 0;
+      justify-items: start; /* linksbündig im Grid */
+    }
+    .card {
+      position: relative;
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      width: 180px; /* fix */
+    }
+    .card:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+    .cover-img {
+      display: block;
+      width: 180px;
+      height: 240px; /* 3:4 Format */
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+      border-radius: 12px 12px 0 0;
+    }
+    .preview-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      border-radius: 12px 12px 0 0;
+    }
+    .card:hover .cover-img {
+      opacity: 0;
+    }
+    .card:hover .preview-video {
+      opacity: 1;
+    }
+    .info {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #222;
+      border-radius: 0 0 12px 12px;
+      width: 180px; /* passend zur Karte */
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>PikaFlix</h1>
+
+  <input type="search" id="search" placeholder="Serien & Filme suchen..." autocomplete="off" />
+
+  <!-- Serien -->
+  <section id="series-section">
+    <h2>Serien</h2>
+    <div class="grid">
+      <a href="series.html?title=Rascal Does Not Dream&folder=Rascal Does Not Dream" class="card" title="Rascal Does Not Dream">
+        <img class="cover-img" src="series/Rascal Does Not Dream/cover.jpg" alt="Rascal Does Not Dream" />
+        <video class="preview-video" src="series/Rascal Does Not Dream/preview.mp4" muted loop playsinline></video>
+        <div class="info">Rascal Does Not Dream</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Filme -->
+  <section id="movies-section">
+    <h2>Filme</h2>
+    <div class="grid" id="movies-grid">
+      <a href="film.html?folder=Gran Turismo&filename=film.mp4&title=Gran Turismo" class="card" title="Gran Turismo">
+        <img class="cover-img" src="series/Gran Turismo/cover.jpg" alt="Gran Turismo" />
+        <video class="preview-video" src="series/Gran Turismo/preview.mp4" muted loop playsinline></video>
+        <div class="info">Gran Turismo</div>
+      </a>
+
+      <a href="film.html?folder=Your Name. Gestern, heute und für immer&filename=film.mp4&title=Your Name. Gestern, heute und für immer" class="card" title="Your Name">
+        <img class="cover-img" src="series/Your Name. Gestern, heute und für immer/cover.jpg" alt="Your Name" />
+        <video class="preview-video" src="series/Your Name/preview.mp4" muted loop playsinline></video>
+        <div class="info">Your Name. Gestern, heute und für immer</div>
+      </a>
+
+      <a href="film.html?folder=Seven Days War&filename=film.mp4&title=Seven Days War" class="card" title="Seven Days War">
+        <img class="cover-img" src="series/Seven Days War/cover.jpg" alt="Seven Days War" />
+        <video class="preview-video" src="series/Seven Days War/preview.mp4" muted loop playsinline></video>
+        <div class="info">Seven Days War</div>
+      </a>
+
+      <a href="film.html?folder=I Want to Eat Your Pancreas&filename=film.mp4&title=I Want to Eat Your Pancreas" class="card" title="I Want to Eat Your Pancreas">
+        <img class="cover-img" src="series/I Want to Eat Your Pancreas/cover.jpg" alt="I Want to Eat Your Pancreas" />
+        <video class="preview-video" src="series/I Want to Eat Your Pancreas/preview.mp4" muted loop playsinline></video>
+        <div class="info">I Want to Eat Your Pancreas</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Film Reihen -->
+  <section id="taxi-section">
+    <h2>Film Reihen</h2>
+    <div class="grid">
+      <a href="taxi.html" class="card" title="Taxi Reihe">
+        <img class="cover-img" src="series/Taxi/cover.jpg" alt="Taxi Reihe" />
+        <div class="info">Taxi Reihe</div>
+      </a>
+    </div>
+  </section>
+
+<script>
+  const searchInput = document.getElementById('search');
+  const allCards = document.querySelectorAll('.card');
+
+  searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.toLowerCase();
+    allCards.forEach(card => {
+      const text = card.querySelector('.info').textContent.toLowerCase();
+      card.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+
+  document.querySelectorAll('.card').forEach(card => {
+    const video = card.querySelector('video.preview-video');
+    if (video) {
+      card.addEventListener('mouseenter', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

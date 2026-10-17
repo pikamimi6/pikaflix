@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Film</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    video {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <video id="player" controls autoplay></video>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const folder = params.get("folder");
+      const filename = params.get("filename");
+      const title = params.get("title") || "Video";
+
+      if (!folder || !filename) {
+        alert("Fehler: Film-Informationen fehlen.");
+        return;
+      }
+
+      document.title = title;
+
+      const player = document.getElementById("player");
+      player.src = `series/${folder}/${filename}`;
+    });
+  </script>
+</body>
+</html>

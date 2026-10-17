@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Serie - Rascal Does Not Dream</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .card {
+      position: relative;
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+    .cover-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+      display: block;
+    }
+    .info {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="series-title">Serie: Rascal Does Not Dream</h1>
+  <div class="grid" id="series-grid">
+    <a href="season.html?folder=Rascal Does Not Dream&season=Staffel 1" class="card" title="Staffel 1">
+      <img class="cover-img" src="series/Rascal Does Not Dream/Staffel 1/cover.jpg" alt="Staffel 1" />
+      <div class="info">Staffel 1</div>
+    </a>
+
+    <a href="film.html?folder=Rascal Does Not Dream/film&filename=film.mp4&title=Rascal Does Not Dream of a Dreaming Girl" class="card" title="Film">
+      <img class="cover-img" src="series/Rascal Does Not Dream/film/cover.jpg" alt="Film" />
+      <div class="info">Rascal Does Not Dream of a Dreaming Girl</div>
+    </a>
+  </div>
+</body>
+</html>

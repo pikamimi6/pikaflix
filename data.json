@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+    "folder": "Rascal Does Not Dream",
+    "cover": "series/Rascal Does Not Dream/cover.jpg",
+    "seasons": [
+      {
+        "name": "Staffel 1",
+        "folder": "Staffel 1",
+        "episodes": 13
+      }
+    ]
+  }
+]

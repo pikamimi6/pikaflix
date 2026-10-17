@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Staffel - Rascal Does Not Dream</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .card {
+      background: #222;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="season-title">Staffel</h1>
+  <div id="season-container" class="grid"></div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const folder = params.get("folder");
+    const season = params.get("season");
+
+    const titleElem = document.getElementById("season-title");
+    const container = document.getElementById("season-container");
+
+    if (!folder || !season) {
+      titleElem.textContent = "Fehler: Staffel nicht gefunden.";
+      return;
+    }
+
+    titleElem.textContent = season;
+
+    const totalEpisodes = 13; // hier Anzahl Episoden anpassen, falls andere Serie
+    for (let i = 1; i <= totalEpisodes; i++) {
+      const episodeNum = i.toString().padStart(2, "0");
+      const epLink = document.createElement("a");
+      epLink.href = `film.html?folder=${encodeURIComponent(folder)}/${encodeURIComponent(season)}&filename=Rascal Does Not Dream of Bunny Girl Senpai ${episodeNum}.mp4&title=Folge ${episodeNum}`;
+      epLink.className = "card";
+      epLink.textContent = `Folge ${episodeNum}`;
+      container.appendChild(epLink);
+    }
+  });
+</script>
+</body>
+</html>

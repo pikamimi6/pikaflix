@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player</title>
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    video {
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ffcc00;
+      margin-top: 20px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="video-title">Video wird geladen...</h1>
+  <video id="video-player" controls></video>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const src = params.get("src");
+      const title = params.get("title") || src;
+
+      const video = document.getElementById("video-player");
+      const titleElem = document.getElementById("video-title");
+
+      video.src = src;
+      titleElem.textContent = decodeURIComponent(title);
+    });
+  </script>
+</body>
+</html>

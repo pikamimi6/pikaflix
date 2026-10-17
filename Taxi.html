@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taxi Reihe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .card {
+      position: relative;
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+    .cover-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .info {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>Taxi Reihe</h1>
+  <div class="grid">
+    <a href="film.html?folder=Taxi/Taxi&filename=film.mp4&title=Taxi 1" class="card" title="Taxi 1">
+      <img class="cover-img" src="series/Taxi/Taxi/cover.jpg" alt="Taxi 1" />
+      <div class="info">Taxi 1</div>
+    </a>
+    <a href="film.html?folder=Taxi/Taxi Taxi&filename=film.mp4&title=Taxi 2" class="card" title="Taxi 2">
+      <img class="cover-img" src="series/Taxi/Taxi Taxi/cover.jpg" alt="Taxi 2" />
+      <div class="info">Taxi 2</div>
+    </a>
+    <a href="film.html?folder=Taxi/Taxi 3&filename=film.mp4&title=Taxi 3" class="card" title="Taxi 3">
+      <img class="cover-img" src="series/Taxi/Taxi 3/cover.jpg" alt="Taxi 3" />
+      <div class="info">Taxi 3</div>
+    </a>
+	<a href="film.html?folder=Taxi/Taxi 4&filename=film.mp4&title=Taxi 4" class="card" title="Taxi 3">
+      <img class="cover-img" src="series/Taxi/Taxi 4/cover.jpg" alt="Taxi 4" />
+      <div class="info">Taxi 4</div>
+    </a>
+  </div>
+</body>
+</html>
