@@ -8,18 +8,44 @@
       font-family: Arial, sans-serif;
       background: #111;
       color: #fff;
+      margin: 0;
       padding: 20px;
     }
     h1 {
-      text-align: center;
+      text-align: left; /* linksbündig */
       font-size: 2.5em;
       margin-bottom: 20px;
+      padding-left: 10px;
+    }
+    #search {
+      display: block;
+      margin: 0 0 30px 10px;
+      padding: 8px 15px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      max-width: 400px;
+      width: 90%;
+      background: #222;
+      color: #fff;
+    }
+    section {
+      margin-bottom: 40px;
+      padding-left: 10px;
+    }
+    section h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      border-left: 5px solid #f39c12;
+      padding-left: 10px;
+      text-align: left;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 20px;
-      padding: 0 10px;
+      padding: 0 10px 0 0;
+      justify-items: start; /* linksbündig im Grid */
     }
     .card {
       position: relative;
@@ -30,17 +56,38 @@
       color: #fff;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease;
+      cursor: pointer;
+      width: 180px; /* fix */
     }
     .card:hover {
       transform: scale(1.05);
       z-index: 2;
     }
     .cover-img {
-      width: 100%;
-      height: 260px;
+      display: block;
+      width: 180px;
+      height: 240px; /* 3:4 Format */
       object-fit: cover;
       transition: opacity 0.3s ease;
-      display: block;
+      border-radius: 12px 12px 0 0;
+    }
+    .preview-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      border-radius: 12px 12px 0 0;
+    }
+    .card:hover .cover-img {
+      opacity: 0;
+    }
+    .card:hover .preview-video {
+      opacity: 1;
     }
     .info {
       padding: 10px;
@@ -48,6 +95,9 @@
       font-weight: bold;
       font-size: 1.1em;
       background: #222;
+      border-radius: 0 0 12px 12px;
+      width: 180px; /* passend zur Karte */
+      margin: 0 auto;
     }
   </style>
 </head>
